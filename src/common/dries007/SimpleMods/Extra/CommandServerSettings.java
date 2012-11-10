@@ -10,7 +10,6 @@ import cpw.mods.fml.common.ObfuscationReflectionHelper;
 import cpw.mods.fml.relauncher.ReflectionHelper;
 import cpw.mods.fml.relauncher.ReflectionHelper.UnableToAccessFieldException;
 
-import dries007.SimpleMods.SimpleMods;
 import dries007.SimpleMods.*;
 
 import net.minecraft.server.MinecraftServer;
@@ -43,7 +42,7 @@ public class CommandServerSettings extends CommandBase
     
     public void processCommand(ICommandSender sender, String[] args)
     {
-    	MinecraftServer server = SimpleMods.server;
+    	MinecraftServer server = SimpleModsConfiguration.server;
     	if(args.length==0)
     	{
     		sender.sendChatToPlayer("List of available settings:");
@@ -76,7 +75,7 @@ public class CommandServerSettings extends CommandBase
     
     public void get(ICommandSender sender, String name)
     {
-    	MinecraftServer server = SimpleMods.server;
+    	MinecraftServer server = SimpleModsConfiguration.server;
     	if(name.equalsIgnoreCase("pvp"))
 		{
 			sender.sendChatToPlayer("PVP is now:" + server.isPVPEnabled());
@@ -129,7 +128,7 @@ public class CommandServerSettings extends CommandBase
     
     public void set(ICommandSender sender, String name, String value)
     {
-    	MinecraftServer server = SimpleMods.server;
+    	MinecraftServer server = SimpleModsConfiguration.server;
     	if(name.equalsIgnoreCase("pvp"))
 		{
     		try

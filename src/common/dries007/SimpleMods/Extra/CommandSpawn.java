@@ -2,7 +2,6 @@ package dries007.SimpleMods.Extra;
 
 import cpw.mods.fml.common.Side;
 import cpw.mods.fml.common.asm.SideOnly;
-import dries007.SimpleMods.Crafting;
 import dries007.SimpleMods.*;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.src.*;
@@ -36,7 +35,7 @@ public class CommandSpawn extends CommandBase
 			((EntityPlayerMP) player).playerNetServerHandler.setPlayerLocation(X, Y, Z, yaw, pitch);
 			player.sendChatToPlayer("Welcome to " + data.getString("name"));
 		}
-		else if(SimpleMods.spawnOverride)
+		else if(SimpleModsConfiguration.spawnOverride)
 		{
 			ChunkCoordinates coords = player.worldObj.getSpawnPoint();
 			player.setPosition(coords.posX, coords.posY, coords.posZ);

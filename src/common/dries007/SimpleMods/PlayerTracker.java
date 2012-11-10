@@ -14,7 +14,7 @@ public class PlayerTracker implements IPlayerTracker
 	{
 		if(FMLCommonHandler.instance().getEffectiveSide().isServer())
 		{
-			if(SimpleMods.server.isDedicatedServer())
+			if(SimpleModsConfiguration.server.isDedicatedServer())
 			{
 				if(!Permissions.playerData.getCompoundTag(player.username).hasKey("Rank"))
 				{
@@ -96,7 +96,7 @@ public class PlayerTracker implements IPlayerTracker
 				((EntityPlayerMP) player).playerNetServerHandler.setPlayerLocation(X, Y, Z, yaw, pitch);
 				player.sendChatToPlayer("Welcome to " + data.getString("name"));
 			}
-			else if(SimpleMods.spawnOverride)
+			else if(SimpleModsConfiguration.spawnOverride)
 			{
 				ChunkCoordinates coords = player.worldObj.getSpawnPoint();
 				player.setPosition(coords.posX, coords.posY, coords.posZ);

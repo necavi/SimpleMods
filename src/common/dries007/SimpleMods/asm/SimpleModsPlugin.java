@@ -20,7 +20,6 @@ public class SimpleModsPlugin implements IFMLLoadingPlugin, IFMLCallHook
 	@Override
 	public Void call() throws Exception 
 	{
-		SimpleMods.makeConfig();
 		SimpleMods.addOverrides();
 		return null;
 	}

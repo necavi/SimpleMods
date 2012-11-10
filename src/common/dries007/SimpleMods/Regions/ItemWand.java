@@ -8,6 +8,7 @@ import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.Side;
 import cpw.mods.fml.common.asm.SideOnly;
 import dries007.SimpleMods.SimpleMods;
+import dries007.SimpleMods.SimpleModsConfiguration;
 import net.minecraft.src.*;
 
 public class ItemWand extends Item
@@ -24,7 +25,7 @@ public class ItemWand extends Item
 		
 	public String getTextureFile()
 	{
-		return SimpleMods.WANDTEXTURE;
+		return SimpleModsConfiguration.WANDTEXTURE;
 	}	
 	 	
 	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player)

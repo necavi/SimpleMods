@@ -51,25 +51,32 @@ public class SimpleModsModContainer extends DummyModContainer
 		MinecraftForge.EVENT_BUS.register(new VanillaInterface());
 		return true;
 	}
-	
+    @Subscribe
+    public void preInit(FMLPreInitializationEvent event) {
+		SimpleModsConfiguration.makeConfig(event.getSuggestedConfigurationFile());
+		SimpleMods.addOverrides();
+
+
+    }
 	@Subscribe
 	public void init(FMLInitializationEvent event) 
 	{
 		if (event.getSide().isClient())
 		{
-			net.minecraftforge.client.MinecraftForgeClient.preloadTexture(SimpleMods.WANDTEXTURE);
+			net.minecraftforge.client.MinecraftForgeClient.preloadTexture(SimpleModsConfiguration.WANDTEXTURE);
 		}
-		SimpleMods.ItemWand = new dries007.SimpleMods.Regions.ItemWand(SimpleMods.ItemWandID);
-		LanguageRegistry.addName(SimpleMods.ItemWand, "Wand");
-		GameRegistry.addShapelessRecipe(new ItemStack(SimpleMods.ItemWand, 1), new Object[] {new ItemStack(Item.stick, 1)});
+		SimpleModsConfiguration.itemWand = new dries007.SimpleMods.Regions.ItemWand(SimpleModsConfiguration.itemWandID);
+		LanguageRegistry.addName(SimpleModsConfiguration.itemWand, "Wand");
+		GameRegistry.addShapelessRecipe(new ItemStack(SimpleModsConfiguration.itemWand, 1), new Object[] {new ItemStack(Item.stick, 1)});
 	}
 	
 	
 	@Subscribe
     public void serverStarting(FMLServerStartingEvent event)
 	{
-		SimpleMods.server = FMLCommonHandler.instance().getMinecraftServerInstance();
+		SimpleModsConfiguration.server = FMLCommonHandler.instance().getMinecraftServerInstance();
 		SimpleMods.addCommands();
+		
 		
 		NBTTagInt example = new NBTTagInt("Example", 42);
 		Permissions.addDefaultSetting(example);
@@ -99,7 +106,7 @@ public class SimpleModsModContainer extends DummyModContainer
 	@Subscribe
 	public void serverStarted(FMLServerStartedEvent event)
 	{
-		if(event.getSide().isServer() && SimpleMods.postModlist) SimpleMods.writemodlist(event);
+		if(event.getSide().isServer() && SimpleModsConfiguration.postModlist) SimpleMods.writemodlist(event);
 	}
 	
 	@ForgeSubscribe

@@ -63,11 +63,11 @@ public class WorldBorder implements IScheduledTickHandler
 		
 			if(ticks % players == 0)
 			{
-				players = SimpleMods.server.getAllUsernames().length + 1;
+				players = SimpleModsConfiguration.server.getAllUsernames().length + 1;
 			}
 			else
 			{
-				EntityPlayerMP player = ((EntityPlayerMP)SimpleMods.server.getConfigurationManager().playerEntityList.get((int) (ticks % players - 1)));
+				EntityPlayerMP player = ((EntityPlayerMP)SimpleModsConfiguration.server.getConfigurationManager().playerEntityList.get((int) (ticks % players - 1)));
 				checkPlayer(player);
 			}
 		}

@@ -27,7 +27,7 @@ public class CommandLag extends CommandBase
     public void processCommand(ICommandSender sender, String[] args)
     {
     	if(!FMLCommonHandler.instance().getEffectiveSide().isServer()) return;
-    	MinecraftServer server = SimpleMods.server;
+    	MinecraftServer server = SimpleModsConfiguration.server;
         long var1 = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
         sender.sendChatToPlayer("");
         sender.sendChatToPlayer("Memory use: " + var1 / 1024L / 1024L + " mb (" + Runtime.getRuntime().freeMemory() * 100L / Runtime.getRuntime().maxMemory() + "% free)");

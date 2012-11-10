@@ -37,7 +37,7 @@ public class TickHandler implements IScheduledTickHandler
 				if(time==0)
 				{
 					ToRemove.add(player);
-					EntityPlayerMP source = SimpleMods.server.getConfigurationManager().getPlayerForUsername(player.getEntityData().getString("TPA").trim());
+					EntityPlayerMP source = SimpleModsConfiguration.server.getConfigurationManager().getPlayerForUsername(player.getEntityData().getString("TPA").trim());
 					if(source==null) FMLLog.severe("TPA source was null, Username was: " + player.getEntityData().getString("TPA").trim());
 					else source.addChatMessage("TPA timed out");
 					player.addChatMessage("TPA timed out");

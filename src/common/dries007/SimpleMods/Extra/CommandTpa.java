@@ -3,8 +3,6 @@ package dries007.SimpleMods.Extra;
 import java.util.List;
 import java.util.TimerTask;
 
-import dries007.SimpleMods.SimpleMods;
-import dries007.SimpleMods.TickHandler;
 import dries007.SimpleMods.*;
 
 import java.util.Timer;
@@ -58,7 +56,7 @@ public class CommandTpa extends CommandBase
     		EntityPlayer target = args.length >= 1 ? func_82359_c(sender, args[0]) : getCommandSenderAsPlayer(sender);
     		target.sendChatToPlayer(sender.getCommandSenderName() + " wants to TP to you. Use '/tpa a' to allow or '/tpa d' to deny.");
     		target.getEntityData().setString("TPA", sender.getCommandSenderName());
-    		target.getEntityData().setInteger("TPAtime", SimpleMods.TPAtimeout);
+    		target.getEntityData().setInteger("TPAtime", SimpleModsConfiguration.tpaTimeout);
     		TickHandler.TPA.add(target);
     	}
     }

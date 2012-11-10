@@ -21,8 +21,8 @@ public class Data
 	public static boolean saveData(NBTTagCompound data, String filename)
 	{
 		String folder;
-		if (SimpleMods.server.isDedicatedServer()) folder = SimpleMods.server.getFolderName();
-		else folder = "saves" + File.separator + SimpleMods.server.getFolderName();
+		if (SimpleModsConfiguration.server.isDedicatedServer()) folder = SimpleModsConfiguration.server.getFolderName();
+		else folder = "saves" + File.separator + SimpleModsConfiguration.server.getFolderName();
 		try
 		{
 			File file = new File(folder+File.separator+"SimpleMods");
@@ -61,8 +61,8 @@ public class Data
 	public static NBTTagCompound loadData(String filename)
 	{
 		String folder;
-		if (SimpleMods.server.isDedicatedServer()) folder = SimpleMods.server.getFolderName();
-		else folder = "saves" + File.separator + SimpleMods.server.getFolderName();
+		if (SimpleModsConfiguration.server.isDedicatedServer()) folder = SimpleModsConfiguration.server.getFolderName();
+		else folder = "saves" + File.separator + SimpleModsConfiguration.server.getFolderName();
 		try
 		{
 			File var2 = new File(folder+File.separator+"SimpleMods", filename + ".dat");

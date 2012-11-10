@@ -31,7 +31,7 @@ public class CommandPing extends CommandBase
     
     public void processCommand(ICommandSender par1ICommandSender, String[] par2ArrayOfStr)
     {
-    	par1ICommandSender.sendChatToPlayer(SimpleMods.PingMsg);
+    	par1ICommandSender.sendChatToPlayer(SimpleModsConfiguration.pingMsg);
     }
     
     public boolean canCommandSenderUseCommand(ICommandSender par1ICommandSender)
