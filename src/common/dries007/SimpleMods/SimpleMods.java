@@ -5,6 +5,7 @@ import java.io.FileWriter;
 import java.io.PrintWriter;
 import java.util.Calendar;
 
+import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.ModContainer;
@@ -31,7 +32,6 @@ public class SimpleMods
 {
 	public static final String WANDTEXTURE = "/dries007/SimpleMods/Regions/wands.png";
 	public static MinecraftServer server;
-	public static File configFile;
 	public static boolean postModlist;
 	public static String postLocation;
 	public static boolean spawnOverride;
@@ -42,11 +42,10 @@ public class SimpleMods
 	public static boolean addRegions;
 	public static Item ItemWand;
 	public static Integer ItemWandID;
+	private static File configFile = new File("SimpleMods.cfg");
 
-	public static void makeConfig(File configFile)
+	public static void makeConfig()
 	{
-		SimpleMods.configFile = configFile;
-		
 		final String CATEGORY_CORE = "Core";
 		final String CATEGORY_RANK = "Ranks";
 		final String CATEGORY_REGIONS = "Regions";
@@ -55,6 +54,7 @@ public class SimpleMods
 		final String CATEGORY_MODULES = "Modules";
 		
 		Configuration configuration = new Configuration(configFile);
+		System.out.println("Path: " + configFile.getAbsolutePath());
 		try
 		{
 			configuration.load();
@@ -157,6 +157,7 @@ public class SimpleMods
 		{
 			System.out.println("SimpleMods has a problem loading it's configuration");
 			System.out.println(e.getMessage());
+			throw new RuntimeException();
 		}
 		finally 
 		{

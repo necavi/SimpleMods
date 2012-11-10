@@ -55,7 +55,6 @@ public class SimpleModsModContainer extends DummyModContainer
 	@Subscribe
 	public void init(FMLInitializationEvent event) 
 	{
-		FMLLog.severe("FMLInitializationEvent");
 		if (event.getSide().isClient())
 		{
 			net.minecraftforge.client.MinecraftForgeClient.preloadTexture(SimpleMods.WANDTEXTURE);
@@ -69,7 +68,6 @@ public class SimpleModsModContainer extends DummyModContainer
 	@Subscribe
     public void serverStarting(FMLServerStartingEvent event)
 	{
-		FMLLog.severe("FMLServerStartingEvent");
 		SimpleMods.server = FMLCommonHandler.instance().getMinecraftServerInstance();
 		SimpleMods.addCommands();
 		
@@ -101,7 +99,6 @@ public class SimpleModsModContainer extends DummyModContainer
 	@Subscribe
 	public void serverStarted(FMLServerStartedEvent event)
 	{
-		FMLLog.severe("FMLServerStartedEvent");
 		if(event.getSide().isServer() && SimpleMods.postModlist) SimpleMods.writemodlist(event);
 	}
 	
