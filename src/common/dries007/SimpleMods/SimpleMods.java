@@ -21,6 +21,7 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.src.EntityPlayer;
 import net.minecraft.src.EntityPlayerMP;
 import net.minecraft.src.ICommandManager;
+import net.minecraft.src.Item;
 import net.minecraft.src.ServerCommandManager;
 import net.minecraftforge.common.Configuration;
 import net.minecraftforge.common.Property;
@@ -37,7 +38,9 @@ public class SimpleMods
 	public static boolean addExtra;
 	public static String PingMsg;
 	public static int TPAtimeout;
-	private static boolean addRegions;
+	public static boolean addRegions;
+	public static Item ItemWand;
+	public static Integer ItemWandID;
 
 	public static void makeConfig(File configFile)
 	{
@@ -45,6 +48,7 @@ public class SimpleMods
 		
 		final String CATEGORY_CORE = "Core";
 		final String CATEGORY_RANK = "Ranks";
+		final String CATEGORY_REGIONS = "Regions";
 		final String CATEGORY_MESSAGES = "Messages";
 		final String CATEGORY_OVERRIDE = "OverrideClasses";
 		final String CATEGORY_MODULES = "Modules";
@@ -93,6 +97,31 @@ public class SimpleMods
 			prop = configuration.get(CATEGORY_MESSAGES, "PingMsg", "Pong!");
 			prop.comment = "Response to the Ping Command";
 			SimpleMods.PingMsg = prop.value;
+			
+			//REGIONS
+			prop = configuration.getItem(CATEGORY_REGIONS, "", 900);
+			prop.comment = "Response to the Ping Command";
+			SimpleMods.ItemWandID = prop.getInt();
+			
+			prop = configuration.get(CATEGORY_REGIONS, "maxChanges", 500000);
+			prop.comment = "The maximum amount of blocks that can be edited at once.";
+			API.maxChanges = prop.getInt();
+			
+			prop = configuration.get(CATEGORY_REGIONS, "warningLevel", 100000);
+			prop.comment = "If this amount of blocks (or more) is edited, a server wide message will be sent.";
+			API.warningLevel = prop.getInt();
+			
+			prop = configuration.get(CATEGORY_REGIONS, "vertLevel", 128);
+			prop.comment = "The hight a selection will be set at using vert or up. Setting this to 256 will make more lagg but makes editing large things easier.";
+			API.vertLevel = prop.getInt();
+			
+			prop = configuration.get(CATEGORY_REGIONS, "bedrockRemoval", false);
+			prop.comment = "Set this to true to make selections select layer 0 when using vert or down.";
+			API.bedrockRemoval = prop.getBoolean(false);
+			
+			prop = configuration.get(CATEGORY_REGIONS, "secureTNT", true);
+			prop.comment = "Calculate every block destroyed in the blast, laggy. If false, you only calculate the explosion source position.";
+			API.secureTNT = prop.getBoolean(true);
 			
 			//MODULES
 			prop = configuration.get(CATEGORY_RANK, "addCore", true);

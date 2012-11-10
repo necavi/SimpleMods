@@ -21,6 +21,7 @@ public class API
 	public static int warningLevel;
 	public static boolean bedrockRemoval;
 	public static int vertLevel;
+	public static boolean secureTNT;
 	
 	/**
 	 * Returns all the flags asociated with the region name

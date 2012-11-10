@@ -30,7 +30,6 @@ public class SimpleModsPlugin implements IFMLLoadingPlugin, IFMLCallHook
 		if(ObfuscationReflectionHelper.obfuscation)
 		{
 			SimpleModsTransformer.addClassOverride("dg", "Needed to display rank on the tap-screen. (Packet201PlayerInfo)");
-			
 		}
 	}
 

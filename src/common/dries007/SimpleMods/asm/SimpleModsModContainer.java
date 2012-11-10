@@ -13,6 +13,7 @@ import com.google.common.eventbus.Subscribe;
 
 import cpw.mods.fml.common.DummyModContainer;
 import cpw.mods.fml.common.FMLCommonHandler;
+import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.LoadController;
 import cpw.mods.fml.common.ModMetadata;
 import cpw.mods.fml.common.Side;
@@ -29,10 +30,6 @@ import dries007.SimpleMods.Regions.API;
 
 public class SimpleModsModContainer extends DummyModContainer
 {
-
-	private Item ItemWand;
-	private Integer ItemWandID;
-
 	public SimpleModsModContainer()
 	{
 		super(new ModMetadata());
@@ -58,19 +55,21 @@ public class SimpleModsModContainer extends DummyModContainer
 	@Subscribe
 	public void init(FMLInitializationEvent event) 
 	{
+		FMLLog.severe("FMLInitializationEvent");
 		if (event.getSide().isClient())
 		{
 			net.minecraftforge.client.MinecraftForgeClient.preloadTexture(SimpleMods.WANDTEXTURE);
 		}
-		ItemWand = new dries007.SimpleMods.Regions.ItemWand(ItemWandID);
-		LanguageRegistry.addName(ItemWand, "Wand");
-		GameRegistry.addShapelessRecipe(new ItemStack(ItemWand, 1), new Object[] {new ItemStack(Item.stick, 1)});
+		SimpleMods.ItemWand = new dries007.SimpleMods.Regions.ItemWand(SimpleMods.ItemWandID);
+		LanguageRegistry.addName(SimpleMods.ItemWand, "Wand");
+		GameRegistry.addShapelessRecipe(new ItemStack(SimpleMods.ItemWand, 1), new Object[] {new ItemStack(Item.stick, 1)});
 	}
 	
 	
 	@Subscribe
     public void serverStarting(FMLServerStartingEvent event)
-	{		
+	{
+		FMLLog.severe("FMLServerStartingEvent");
 		SimpleMods.server = FMLCommonHandler.instance().getMinecraftServerInstance();
 		SimpleMods.addCommands();
 		
@@ -102,6 +101,7 @@ public class SimpleModsModContainer extends DummyModContainer
 	@Subscribe
 	public void serverStarted(FMLServerStartedEvent event)
 	{
+		FMLLog.severe("FMLServerStartedEvent");
 		if(event.getSide().isServer() && SimpleMods.postModlist) SimpleMods.writemodlist(event);
 	}
 	
