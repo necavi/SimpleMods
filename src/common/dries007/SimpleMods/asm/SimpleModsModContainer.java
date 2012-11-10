@@ -24,6 +24,7 @@ import cpw.mods.fml.common.event.FMLServerStoppingEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.TickRegistry;
 import dries007.SimpleMods.*;
+import dries007.SimpleMods.Regions.API;
 
 public class SimpleModsModContainer extends DummyModContainer
 {
@@ -45,8 +46,23 @@ public class SimpleModsModContainer extends DummyModContainer
 	{
 		bus.register(this);
 		MinecraftForge.EVENT_BUS.register(this);
+		MinecraftForge.EVENT_BUS.register(new VanillaInterface());
 		return true;
 	}
+	
+	@Subscribe
+	public void init(FMLInitializationEvent event) 
+	{
+		if (event.getSide().isClient())
+		{
+			net.minecraftforge.client.MinecraftForgeClient.preloadTexture("/dries007/SimpleRegions/wands.png");
+		}
+		//ItemWand = new ItemWand(ItemWandID);
+		//LanguageRegistry.addName(ItemWand, "Wand");
+		//GameRegistry.addShapelessRecipe(new ItemStack(ItemWand, 1), new Object[] {new ItemStack(Item.stick, 1)});
+		
+	}
+	
 	
 	@Subscribe
     public void serverStarting(FMLServerStartingEvent event)
@@ -54,14 +70,15 @@ public class SimpleModsModContainer extends DummyModContainer
 		SimpleMods.server = FMLCommonHandler.instance().getMinecraftServerInstance();
 		SimpleMods.addCommands();
 		
-		
 		NBTTagInt example = new NBTTagInt("Example", 42);
 		Permissions.addDefaultSetting(example);
 		
 		Permissions.playerData=Data.loadData("playerData");
 		Permissions.rankData=Data.loadData("rankData");
+		API.regionData = Data.loadData("regionData");
 		
-		Permissions.addPermission("SC.admin");
+		Permissions.addPermission("SM.all");
+		Permissions.addPermission("SM.admin");
 		
 		if(!Permissions.rankData.hasKey(Permissions.opRank)) Permissions.newRank(Permissions.opRank);
 		if(!Permissions.rankData.hasKey(Permissions.defaultRank)) Permissions.newRank(Permissions.defaultRank);

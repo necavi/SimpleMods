@@ -15,8 +15,8 @@ public class CommandKit extends CommandBase
 {
 	public CommandKit()
 	{
-		Permissions.addPermission("SP."+getCommandName());
-		Permissions.addPermission("SP.kit.admin");
+		Permissions.addPermission("SM."+getCommandName());
+		Permissions.addPermission("SM.kit.admin");
 	}
 	
     public String getCommandName()
@@ -26,7 +26,7 @@ public class CommandKit extends CommandBase
 
     public String getCommandUsage(ICommandSender sender)
     {
-    	if(Permissions.hasPermission(sender.getCommandSenderName(), "SP.kit.admin"))
+    	if(Permissions.hasPermission(sender.getCommandSenderName(), "SM.kit.admin"))
     	{
     		return "/kit <name> [save|delete]";
     	}
@@ -80,7 +80,7 @@ public class CommandKit extends CommandBase
     		return;
     	}
     	// Settigns
-    	else if(args.length==2 && Permissions.hasPermission(sender.getCommandSenderName(), "SP.kit.admin"))
+    	else if(args.length==2 && Permissions.hasPermission(sender.getCommandSenderName(), "SM.kit.admin"))
     	{
     		if(args[1].equalsIgnoreCase("save"))
     		{
@@ -145,6 +145,6 @@ public class CommandKit extends CommandBase
     
     public boolean canCommandSenderUseCommand(ICommandSender sender)
     {
-    	return Permissions.hasPermission(sender.getCommandSenderName(), "SP."+getCommandName());
+    	return Permissions.hasPermission(sender.getCommandSenderName(), "SM."+getCommandName());
     }
 }

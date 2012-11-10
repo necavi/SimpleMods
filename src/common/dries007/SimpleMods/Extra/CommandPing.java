@@ -11,7 +11,7 @@ public class CommandPing extends CommandBase
 {
 	public CommandPing()
 	{
-		//Permissions.addPermission("SP."+getCommandName());
+		//Permissions.addPermission("SM."+getCommandName());
 	}
 	
     public String getCommandName()

@@ -14,7 +14,7 @@ public class CommandLag extends CommandBase
 {
 	public CommandLag()
 	{
-		Permissions.addPermission("SP."+getCommandName());
+		Permissions.addPermission("SM."+getCommandName());
 	}
 	
     public String getCommandName()
@@ -65,7 +65,7 @@ public class CommandLag extends CommandBase
     
     public boolean canCommandSenderUseCommand(ICommandSender par1ICommandSender)
     {
-    	return Permissions.hasPermission(par1ICommandSender.getCommandSenderName(), "SP."+getCommandName());
+    	return Permissions.hasPermission(par1ICommandSender.getCommandSenderName(), "SM."+getCommandName());
     }
 
 }

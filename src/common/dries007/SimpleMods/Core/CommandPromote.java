@@ -47,7 +47,7 @@ public class CommandPromote extends CommandBase
     
     public boolean canCommandSenderUseCommand(ICommandSender sender)
     {
-        return Permissions.hasPermission(sender.getCommandSenderName(), "SC.admin");
+        return Permissions.hasPermission(sender.getCommandSenderName(), "SM.admin");
     }
     
     /**

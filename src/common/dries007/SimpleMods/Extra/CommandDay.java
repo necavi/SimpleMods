@@ -11,7 +11,7 @@ public class CommandDay extends CommandBase
 {
 	public CommandDay()
 	{
-		Permissions.addPermission("SP."+getCommandName());
+		Permissions.addPermission("SM."+getCommandName());
 	}
 	
     public String getCommandName()
@@ -47,7 +47,7 @@ public class CommandDay extends CommandBase
     }
     public boolean canCommandSenderUseCommand(ICommandSender par1ICommandSender)
     {
-        return Permissions.hasPermission(par1ICommandSender.getCommandSenderName(), "SP."+getCommandName());
+        return Permissions.hasPermission(par1ICommandSender.getCommandSenderName(), "SM."+getCommandName());
     }
 
 }

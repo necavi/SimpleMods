@@ -15,8 +15,8 @@ public class CommandWarp extends CommandBase
 {
 	public CommandWarp()
 	{
-		Permissions.addPermission("SP."+getCommandName());
-		Permissions.addPermission("SP.warp.admin");
+		Permissions.addPermission("SM."+getCommandName());
+		Permissions.addPermission("SM.warp.admin");
 	}
 	
     public String getCommandName()
@@ -74,6 +74,6 @@ public class CommandWarp extends CommandBase
     
     public boolean canCommandSenderUseCommand(ICommandSender par1ICommandSender)
     {
-        return Permissions.hasPermission(par1ICommandSender.getCommandSenderName(), "SP.warp");
+        return Permissions.hasPermission(par1ICommandSender.getCommandSenderName(), "SM.warp");
     }
 }

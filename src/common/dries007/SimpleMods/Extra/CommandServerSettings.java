@@ -20,8 +20,8 @@ public class CommandServerSettings extends CommandBase
 {
 	public CommandServerSettings()
 	{
-		Permissions.addPermission("SP."+getCommandName());
-		Permissions.addPermission("SP.ss");
+		Permissions.addPermission("SM."+getCommandName());
+		Permissions.addPermission("SM.ss");
 	}
 	
     public String getCommandName()
@@ -248,6 +248,6 @@ public class CommandServerSettings extends CommandBase
     
     public boolean canCommandSenderUseCommand(ICommandSender par1ICommandSender)
     {
-        return Permissions.hasPermission(par1ICommandSender.getCommandSenderName(), "SP.serversettings") || Permissions.hasPermission(par1ICommandSender.getCommandSenderName(), "SP.ss") ;
+        return Permissions.hasPermission(par1ICommandSender.getCommandSenderName(), "SM.serversettings") || Permissions.hasPermission(par1ICommandSender.getCommandSenderName(), "SM.ss") ;
     }
 }

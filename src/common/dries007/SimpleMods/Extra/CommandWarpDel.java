@@ -15,7 +15,7 @@ public class CommandWarpDel extends CommandBase
 {
 	public CommandWarpDel()
 	{
-		//Permissions.addPermission("SP."+getCommandName());
+		//Permissions.addPermission("SM."+getCommandName());
 	}
 	
     public String getCommandName()
@@ -80,7 +80,7 @@ public class CommandWarpDel extends CommandBase
     
     public boolean canCommandSenderUseCommand(ICommandSender par1ICommandSender)
     {
-        return Permissions.hasPermission(par1ICommandSender.getCommandSenderName(), "SP.warp.admin");
+        return Permissions.hasPermission(par1ICommandSender.getCommandSenderName(), "SM.warp.admin");
     }
 
 }

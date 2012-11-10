@@ -8,7 +8,7 @@ public class CommandRain extends CommandBase
 {
 	public CommandRain()
 	{
-		Permissions.addPermission("SP."+getCommandName());
+		Permissions.addPermission("SM."+getCommandName());
 	}
 	
     public String getCommandName()
@@ -27,7 +27,7 @@ public class CommandRain extends CommandBase
     
     public boolean canCommandSenderUseCommand(ICommandSender par1ICommandSender)
     {
-        return Permissions.hasPermission(par1ICommandSender.getCommandSenderName(), "SP."+getCommandName());
+        return Permissions.hasPermission(par1ICommandSender.getCommandSenderName(), "SM."+getCommandName());
     }
 
 }

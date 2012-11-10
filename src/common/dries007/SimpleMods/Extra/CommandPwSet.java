@@ -12,7 +12,7 @@ public class CommandPwSet extends CommandBase
 {
 	public CommandPwSet()
 	{
-		//Permissions.addPermission("SP."+getCommandName());
+		//Permissions.addPermission("SM."+getCommandName());
 	}
 	
     public String getCommandName()
@@ -61,7 +61,7 @@ public class CommandPwSet extends CommandBase
     
     public boolean canCommandSenderUseCommand(ICommandSender par1ICommandSender)
     {
-        return Permissions.hasPermission(par1ICommandSender.getCommandSenderName(), "SP.pw");
+        return Permissions.hasPermission(par1ICommandSender.getCommandSenderName(), "SM.pw");
     }
 
 }

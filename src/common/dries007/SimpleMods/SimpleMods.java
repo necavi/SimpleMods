@@ -30,8 +30,8 @@ public class SimpleMods
 	public static boolean postModlist;
 	public static String postLocation;
 	public static boolean spawnOverride;
-	public static boolean addCoreCommands;
-	public static boolean addExtraCommands;
+	public static boolean addCore;
+	public static boolean addExtra;
 	public static String PingMsg;
 	public static int TPAtimeout;
 
@@ -93,11 +93,11 @@ public class SimpleMods
 			//MODULES
 			prop = configuration.get(CATEGORY_RANK, "addCore", true);
 			prop.comment = "Add Core commands";
-			SimpleMods.addCoreCommands = prop.getBoolean(true);
+			SimpleMods.addCore = prop.getBoolean(true);
 			
 			prop = configuration.get(CATEGORY_RANK, "addExtra", true);
 			prop.comment = "Add Extra commands";
-			SimpleMods.addExtraCommands = prop.getBoolean(true);
+			SimpleMods.addExtra = prop.getBoolean(true);
 			
 			//OVERRIDES
 			for(String name : SimpleModsTransformer.override.keySet())
@@ -160,8 +160,8 @@ public class SimpleMods
 		ICommandManager commandManager = server.getCommandManager();
 		ServerCommandManager manager = ((ServerCommandManager) commandManager); 
 		
-		if(addCoreCommands) addCoreCommands(manager);
-		if(addExtraCommands) addExtraCommands(manager);
+		if(addCore) addCoreCommands(manager);
+		if(addExtra) addExtraCommands(manager);
 	}
 
 	private static void addExtraCommands(ServerCommandManager manager) 

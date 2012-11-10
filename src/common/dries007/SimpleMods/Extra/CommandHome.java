@@ -11,7 +11,7 @@ public class CommandHome extends CommandBase
 {
 	public CommandHome()
 	{
-		Permissions.addPermission("SP.home");
+		Permissions.addPermission("SM.home");
 	}
 	
     public String getCommandName()
@@ -62,6 +62,6 @@ public class CommandHome extends CommandBase
     
     public boolean canCommandSenderUseCommand(ICommandSender par1ICommandSender)
     {
-        return Permissions.hasPermission(par1ICommandSender.getCommandSenderName(), "SP.home");
+        return Permissions.hasPermission(par1ICommandSender.getCommandSenderName(), "SM.home");
     }
 }
