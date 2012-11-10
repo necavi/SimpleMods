@@ -6,7 +6,7 @@
 /jars/*
 /lib/*
 /logs/*
-/modsrc/*
+/modsrc/minecraft/*
 /reobf/*
 /runtime/*
 /temp/*
@@ -16,6 +16,7 @@
 /src/common/*
 
 !/src/common/dries007/
+!/modsrc/minecraft/net/
 CHANGELOG
 LICENSE.txt
 *.bat
