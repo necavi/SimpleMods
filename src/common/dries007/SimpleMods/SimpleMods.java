@@ -12,6 +12,8 @@ import cpw.mods.fml.common.event.FMLServerStartedEvent;
 
 import dries007.SimpleMods.Core.*;
 import dries007.SimpleMods.Extra.*;
+import dries007.SimpleMods.Regions.API;
+import dries007.SimpleMods.Regions.Commands.*;
 
 import dries007.SimpleMods.asm.SimpleModsTransformer;
 
@@ -34,6 +36,7 @@ public class SimpleMods
 	public static boolean addExtra;
 	public static String PingMsg;
 	public static int TPAtimeout;
+	private static boolean addRegions;
 
 	public static void makeConfig(File configFile)
 	{
@@ -99,6 +102,10 @@ public class SimpleMods
 			prop.comment = "Add Extra commands";
 			SimpleMods.addExtra = prop.getBoolean(true);
 			
+			prop = configuration.get(CATEGORY_RANK, "addRegions", true);
+			prop.comment = "Add Regions commands";
+			SimpleMods.addRegions = prop.getBoolean(true);
+			
 			//OVERRIDES
 			for(String name : SimpleModsTransformer.override.keySet())
 			{
@@ -162,6 +169,40 @@ public class SimpleMods
 		
 		if(addCore) addCoreCommands(manager);
 		if(addExtra) addExtraCommands(manager);
+		if(addRegions) 
+		{
+			addRegionCommands(manager);
+			addRegionOtherStuf();
+		}
+	}
+
+	private static void addRegionOtherStuf() 
+	{
+		API.addFlag("nofirespread", "This flag turns off firespread in this region. Mod needs to be a code mod for this!");		//1
+		API.addFlag("nogrowth", "This flag turns off treegrowth in this region. Mod needs to be a code mod for this!");			//2
+		API.addFlag("noexplosions", "This flag turns off explosions in this region. Mod needs to be a code mod for this!");		//3
+		API.addFlag("noplayerblock", "This flag makes placing and removing blocks impossible, exept for the members.");			//4
+		API.addFlag("noplayeritem", "This flag makes use of items impossible (food too!), exept for the members.");				//5
+		API.addFlag("godmode", "This flag makes all players invincible in this region. Overrules pvp.");						//6
+		API.addFlag("nopvp", "This flag makes pvp impossible in this region.");													//7
+		API.addFlag("nofalldamage", ";-)");																						//8
+		API.addFlag("nochest", "This tag makes opening chest impossible");
+	}
+
+	private static void addRegionCommands(ServerCommandManager manager) 
+	{
+		manager.registerCommand(new CommandSet());
+		manager.registerCommand(new CommandRegion());
+		manager.registerCommand(new CommandMembers());
+		manager.registerCommand(new CommandRegen());
+		manager.registerCommand(new CommandExpand());
+		manager.registerCommand(new CommandSphere());
+		manager.registerCommand(new CommandReplace());
+		manager.registerCommand(new CommandExtinguish());
+		manager.registerCommand(new CommandFix());
+		manager.registerCommand(new CommandFlags());
+		manager.registerCommand(new CommandDrain());
+		manager.registerCommand(new CommandTest());		//DEBUG
 	}
 
 	private static void addExtraCommands(ServerCommandManager manager) 
@@ -221,4 +262,13 @@ public class SimpleMods
 		server.getConfigurationManager().transferPlayerToDimension(((EntityPlayerMP) player), dim);
 	}
 	
+	public static float rot(float par0)
+	{
+		par0 %= 360.0F;
+		if (par0<0)
+		{
+			par0 +=360.0F;
+		}	
+		return par0;
+	}	
 }

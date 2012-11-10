@@ -73,6 +73,7 @@ public class SimpleModsModContainer extends DummyModContainer
 		NBTTagInt example = new NBTTagInt("Example", 42);
 		Permissions.addDefaultSetting(example);
 		
+		Permissions.worldData = Data.loadData("worldData");
 		Permissions.playerData=Data.loadData("playerData");
 		Permissions.rankData=Data.loadData("rankData");
 		API.regionData = Data.loadData("regionData");
@@ -88,7 +89,6 @@ public class SimpleModsModContainer extends DummyModContainer
 			NBTBase tag = (NBTBase) base;
 			Permissions.addRank(tag.getName());
 		}
-		Permissions.worldData = Data.loadData("worldData");
 		
 		TickRegistry.registerScheduledTickHandler(new TickHandler(), Side.SERVER);
 		TickRegistry.registerScheduledTickHandler(new WorldBorder(), Side.SERVER);
@@ -107,6 +107,7 @@ public class SimpleModsModContainer extends DummyModContainer
 		Data.saveData(Permissions.worldData, "worldData");
 		Data.saveData(Permissions.playerData, "playerData");
 		Data.saveData(Permissions.rankData, "rankData");
+		Data.saveData(API.regionData, "regionData");
 	}
 	
 	@Subscribe
@@ -115,5 +116,6 @@ public class SimpleModsModContainer extends DummyModContainer
 		Data.saveData(Permissions.worldData, "worldData");
 		Data.saveData(Permissions.playerData, "playerData");
 		Data.saveData(Permissions.rankData, "rankData");
+		Data.saveData(API.regionData, "regionData");
 	}
 }
