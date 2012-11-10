@@ -29,7 +29,7 @@ import dries007.SimpleMods.Regions.API;
 
 public class SimpleModsModContainer extends DummyModContainer
 {
-	private static final String WANDTEXTURE = "/dries007/SimpleMods/Regions/wands.png";
+
 	private Item ItemWand;
 	private Integer ItemWandID;
 
