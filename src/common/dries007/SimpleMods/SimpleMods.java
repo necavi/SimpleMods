@@ -27,6 +27,7 @@ import net.minecraftforge.common.Property;
 
 public class SimpleMods 
 {
+	public static final String WANDTEXTURE = "/dries007/SimpleMods/Regions/wands.png";
 	public static MinecraftServer server;
 	public static File configFile;
 	public static boolean postModlist;

@@ -22,12 +22,17 @@ import cpw.mods.fml.common.event.FMLServerStartedEvent;
 import cpw.mods.fml.common.event.FMLServerStartingEvent;
 import cpw.mods.fml.common.event.FMLServerStoppingEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
+import cpw.mods.fml.common.registry.LanguageRegistry;
 import cpw.mods.fml.common.registry.TickRegistry;
 import dries007.SimpleMods.*;
 import dries007.SimpleMods.Regions.API;
 
 public class SimpleModsModContainer extends DummyModContainer
 {
+	private static final String WANDTEXTURE = "/dries007/SimpleMods/Regions/wands.png";
+	private Item ItemWand;
+	private Integer ItemWandID;
+
 	public SimpleModsModContainer()
 	{
 		super(new ModMetadata());
@@ -55,12 +60,11 @@ public class SimpleModsModContainer extends DummyModContainer
 	{
 		if (event.getSide().isClient())
 		{
-			net.minecraftforge.client.MinecraftForgeClient.preloadTexture("/dries007/SimpleRegions/wands.png");
+			net.minecraftforge.client.MinecraftForgeClient.preloadTexture(SimpleMods.WANDTEXTURE);
 		}
-		//ItemWand = new ItemWand(ItemWandID);
-		//LanguageRegistry.addName(ItemWand, "Wand");
-		//GameRegistry.addShapelessRecipe(new ItemStack(ItemWand, 1), new Object[] {new ItemStack(Item.stick, 1)});
-		
+		ItemWand = new dries007.SimpleMods.Regions.ItemWand(ItemWandID);
+		LanguageRegistry.addName(ItemWand, "Wand");
+		GameRegistry.addShapelessRecipe(new ItemStack(ItemWand, 1), new Object[] {new ItemStack(Item.stick, 1)});
 	}
 	
 	
