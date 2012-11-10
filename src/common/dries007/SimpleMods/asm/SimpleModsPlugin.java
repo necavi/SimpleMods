@@ -20,7 +20,7 @@ public class SimpleModsPlugin implements IFMLLoadingPlugin, IFMLCallHook
 	@Override
 	public Void call() throws Exception 
 	{
-		SimpleMods.makeConfig(new File(minecraftDir + File.pathSeparator + "SimpleMods.cfg"));
+		SimpleMods.makeConfig(new File(minecraftDir + File.separator + "config" + File.separator + "SimpleMods.cfg"));
 		SimpleMods.addOverrides();
 		return null;
 	}
