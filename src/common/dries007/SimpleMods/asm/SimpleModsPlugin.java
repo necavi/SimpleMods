@@ -21,16 +21,8 @@ public class SimpleModsPlugin implements IFMLLoadingPlugin, IFMLCallHook
 	public Void call() throws Exception 
 	{
 		SimpleMods.makeConfig(new File(minecraftDir + File.pathSeparator + "SimpleMods.cfg"));
-		addOverrides();
+		SimpleMods.addOverrides();
 		return null;
-	}
-
-	private void addOverrides() 
-	{
-		if(ObfuscationReflectionHelper.obfuscation)
-		{
-			SimpleModsTransformer.addClassOverride("dg", "Needed to display rank on the tap-screen. (Packet201PlayerInfo)");
-		}
 	}
 
 	@Override

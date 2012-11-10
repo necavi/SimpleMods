@@ -8,6 +8,7 @@ import java.util.Calendar;
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.ModContainer;
+import cpw.mods.fml.common.ObfuscationReflectionHelper;
 import cpw.mods.fml.common.event.FMLServerStartedEvent;
 
 import dries007.SimpleMods.Core.*;
@@ -285,6 +286,18 @@ public class SimpleMods
 		manager.registerCommand(new CommandRank());
 		manager.registerCommand(new CommandSetSpawn());
 		manager.registerCommand(new CommandWorldborder());
+	}
+	
+	public static void addOverrides() 
+	{
+		if(ObfuscationReflectionHelper.obfuscation)
+		{
+			SimpleModsTransformer.addClassOverride("dg", "Needed to display rank on the tap-screen. (Packet201PlayerInfo)");
+			SimpleModsTransformer.addClassOverride("afy", "Needed to protect from fire. (BlockFire)");
+			SimpleModsTransformer.addClassOverride("gz", "Needed to protect from players. (NetServerHandler)");
+			SimpleModsTransformer.addClassOverride("ahr", "Needed to protect from growth. (BlockSapling)");
+			SimpleModsTransformer.addClassOverride("um", "Needed to protect from explosions. (Explosion)");
+		}
 	}
 
 	public static void tpToDim(EntityPlayer player, int dim)
