@@ -49,6 +49,8 @@ public class SimpleModsModContainer extends DummyModContainer
 		bus.register(this);
 		MinecraftForge.EVENT_BUS.register(this);
 		MinecraftForge.EVENT_BUS.register(new VanillaInterface());
+		MinecraftForge.EVENT_BUS.register(new dries007.SimpleMods.Regions.VanillaInterface());
+
 		return true;
 	}
     @Subscribe

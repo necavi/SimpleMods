@@ -122,7 +122,7 @@ public class VanillaInterface
 			NBTTagCompound flags = API.getFlags(region);
 			if (flags.getBoolean(tag))
 			{
-				if(!API.regionData.getCompoundTag(region).getString("Owner").equals(player.username))
+				if(!API.regionData.getCompoundTag(region).getString("Owner").equalsIgnoreCase(player.username))
 				{
 					if(!API.isMemberOfRegion(region, player.username))
 					{
