@@ -102,6 +102,7 @@ public class SimpleMods
 		manager.registerCommand(new CommandFix());
 		manager.registerCommand(new CommandFlags());
 		manager.registerCommand(new CommandDrain());
+		manager.registerCommand(new CommandOwner());
 		manager.registerCommand(new CommandTest());		//DEBUG
 	}
 
