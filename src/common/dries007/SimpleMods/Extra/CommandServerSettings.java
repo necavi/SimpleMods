@@ -177,16 +177,21 @@ public class CommandServerSettings extends CommandBase
 		{
 			try
     		{
+				if(!value.equals("true") && !value.equals("false")) {
+					throw new Exception();
+				}
 				boolean bl = Boolean.parseBoolean(value);
 				for (int var2 = 0; var2 < server.worldServers.length; ++var2)
 		        {
-					ObfuscationReflectionHelper.setPrivateValue(World.class, server.worldServers[var2], bl, "spawnHostileMobs");
+					
+					server.worldServers[var2].setAllowedSpawnTypes(bl, server.getCanSpawnAnimals());
+//					ObfuscationReflectionHelper.setPrivateValue(World.class, server.worldServers[var2], bl, "spawnHostileMobs");
 		        }
     			sender.sendChatToPlayer("Monsters set to :" + bl);
     		}
     		catch(Exception e)
     		{
-    			sender.sendChatToPlayer(MCColor.RED + value + "is not true or false!");
+    			sender.sendChatToPlayer(MCColor.RED + value + " is not true or false!");
     		}			
 		}
 		else if(name.equalsIgnoreCase("npcs"))
