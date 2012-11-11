@@ -143,7 +143,6 @@ public class SimpleMods
 		manager.registerCommand(new CommandTp());		
 		manager.registerCommand(new CommandTpa());		
 		//
-		manager.registerCommand(new CommandTest());		//DEBUG
 	}
 
 	public static void addCoreCommands(ServerCommandManager manager) 

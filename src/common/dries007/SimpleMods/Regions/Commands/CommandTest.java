@@ -23,14 +23,14 @@ public class CommandTest extends CommandBase
         return "test";
     }
     
-    public List getCommandAliases()
-    {
-        return Arrays.asList(new String[] {"/test", "Test", "/Test"});
-    }
+//    public List getCommandAliases()
+//    {
+//        return Arrays.asList(new String[] {"/test", "Test", "/Test"});
+//    }
     
     public String getCommandUsage(ICommandSender par1ICommandSender)
     {
-        return "test";
+        return "/test";
     }
     
     public boolean canCommandSenderUseCommand(ICommandSender sender)
