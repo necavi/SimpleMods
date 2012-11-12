@@ -25,6 +25,7 @@ public class SimpleModsConfiguration {
 	public static boolean addRegions;
 	public static Item itemWand;
 	public static Integer itemWandID;
+	public static String lan;
 	
 	
 	
@@ -75,14 +76,7 @@ public class SimpleModsConfiguration {
 			prop.comment = "Name of the OP rank";
 			Permissions.opRank = prop.value;
 			
-			//MESSAGES
-			prop = configuration.get(CATEGORY_MESSAGES, "wbMessage", "World ends here");
-			prop.comment = null;
-			WorldBorder.wbMessage = prop.value;
-			
-			prop = configuration.get(CATEGORY_MESSAGES, "PingMsg", "Pong!");
-			prop.comment = "Response to the Ping Command";
-			pingMsg = prop.value;
+
 			
 			//REGIONS
 			prop = configuration.get(CATEGORY_REGIONS, "itemWandId", 900);

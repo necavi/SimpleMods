@@ -21,8 +21,8 @@ public class PlayerTracker implements IPlayerTracker
 					NBTTagCompound data = new NBTTagCompound();
 					data.setString("Rank", Permissions.defaultRank);
 					Permissions.playerData.setCompoundTag(player.username, data);
-					player.addChatMessage("You have been given the rank of " + Permissions.defaultRank + ".");
-					player.addChatMessage("This server uses the SimpleMods permissions system.");
+					player.addChatMessage(SimpleModsTranslation.welcomeMessageCoreDefaultRank.replaceAll("%d", Permissions.defaultRank));
+					player.addChatMessage(SimpleModsTranslation.welcomeMessageCore);
 					if(Permissions.rankData.getCompoundTag(Permissions.getRank(player)).hasKey("Spawn"))
 					{
 						data = Permissions.rankData.getCompoundTag(Permissions.getRank(player)).getCompoundTag("Spawn");

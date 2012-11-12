@@ -3,6 +3,7 @@ package dries007.SimpleMods.Regions;
 import cpw.mods.fml.common.FMLLog;
 import dries007.SimpleMods.Permissions;
 import dries007.SimpleMods.SimpleMods;
+import dries007.SimpleMods.SimpleModsTranslation;
 import net.minecraft.src.*;
 import net.minecraftforge.event.ForgeSubscribe;
 import net.minecraftforge.event.Event.Result;
@@ -56,7 +57,7 @@ public class VanillaInterface
 
 		if(VanillaInterface.hasTag(world, event.x, event.y, event.z, "noplayerblock", event.entityPlayer)) {
 			if(event.action!=event.action.LEFT_CLICK_BLOCK || event.action!=event.action.RIGHT_CLICK_BLOCK ) {
-				event.entityPlayer.sendChatToPlayer("flag noplayerblock cancelt the event.");
+				event.entityPlayer.sendChatToPlayer(SimpleModsTranslation.noPlayerBlockMessage);
 
 				event.useBlock = Result.DENY;
 			}
@@ -69,7 +70,7 @@ public class VanillaInterface
 		{
 			if(VanillaInterface.hasTag(world, event.x, event.y, event.z, "nochest", event.entityPlayer))
 			{
-				event.entityPlayer.sendChatToPlayer("You are not allowed to interact in this region");
+				event.entityPlayer.sendChatToPlayer(SimpleModsTranslation.nochestmessage);
 				event.setResult(Result.DENY);
 				event.setCanceled(true);
 			}

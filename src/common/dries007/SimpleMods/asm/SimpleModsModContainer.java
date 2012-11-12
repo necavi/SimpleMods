@@ -56,6 +56,7 @@ public class SimpleModsModContainer extends DummyModContainer
     @Subscribe
     public void preInit(FMLPreInitializationEvent event) {
 		SimpleModsConfiguration.makeConfig(event.getSuggestedConfigurationFile());
+		SimpleModsTranslation.translation(this.getMetadata().modId);
 		SimpleMods.addOverrides();
 
 
@@ -68,7 +69,7 @@ public class SimpleModsModContainer extends DummyModContainer
 			net.minecraftforge.client.MinecraftForgeClient.preloadTexture(SimpleModsConfiguration.WANDTEXTURE);
 		}
 		SimpleModsConfiguration.itemWand = new dries007.SimpleMods.Regions.ItemWand(SimpleModsConfiguration.itemWandID);
-		LanguageRegistry.addName(SimpleModsConfiguration.itemWand, "Wand");
+		LanguageRegistry.addName(SimpleModsConfiguration.itemWand, SimpleModsTranslation.wand);
 		GameRegistry.addShapelessRecipe(new ItemStack(SimpleModsConfiguration.itemWand, 1), new Object[] {new ItemStack(Item.stick, 1)});
 	}
 	

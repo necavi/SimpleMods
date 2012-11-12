@@ -78,15 +78,15 @@ public class SimpleMods
 
 	private static void addRegionOtherStuf() 
 	{
-		API.addFlag("nofirespread", "This flag turns off firespread in this region. Mod needs to be a code mod for this!");		//1
-		API.addFlag("nogrowth", "This flag turns off treegrowth in this region. Mod needs to be a code mod for this!");			//2
-		API.addFlag("noexplosions", "This flag turns off explosions in this region. Mod needs to be a code mod for this!");		//3
-		API.addFlag("noplayerblock", "This flag makes placing and removing blocks impossible, exept for the members.");			//4
-		API.addFlag("noplayeritem", "This flag makes use of items impossible (food too!), exept for the members.");				//5
-		API.addFlag("godmode", "This flag makes all players invincible in this region. Overrules pvp.");						//6
-		API.addFlag("nopvp", "This flag makes pvp impossible in this region.");													//7
-		API.addFlag("nofalldamage", ";-)");																						//8
-		API.addFlag("nochest", "This tag makes opening chest impossible");
+		API.addFlag("nofirespread", SimpleModsTranslation.noFireSpread);		//1
+		API.addFlag("nogrowth", SimpleModsTranslation.noGrowth);			//2
+		API.addFlag("noexplosions", SimpleModsTranslation.noExplosion);		//3
+		API.addFlag("noplayerblock", SimpleModsTranslation.noPlayerBlock);			//4
+		API.addFlag("noplayeritem", SimpleModsTranslation.noPlayerItem);				//5
+		API.addFlag("godmode", SimpleModsTranslation.godmode);						//6
+		API.addFlag("nopvp", SimpleModsTranslation.noPvp);													//7
+		API.addFlag("nofalldamage", SimpleModsTranslation.noFallDamage);																						//8
+		API.addFlag("nochest", SimpleModsTranslation.noChest);
 	}
 
 	private static void addRegionCommands(ServerCommandManager manager) 

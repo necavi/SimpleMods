@@ -18,7 +18,6 @@ public class WorldBorder implements IScheduledTickHandler
 	public static int maxZ = 150;
 	private static int players = 1;
 	
-	public static String wbMessage;
 	
 	public static void setWorldBorder(int minX, int maxX, int minZ, int maxZ)
 	{
@@ -32,22 +31,22 @@ public class WorldBorder implements IScheduledTickHandler
 	{
 		if(player.posX < minX)
 		{
-			player.sendChatToPlayer(MCColor.RED + wbMessage);
+			player.sendChatToPlayer(MCColor.RED + SimpleModsTranslation.wbMessage);
 			player.playerNetServerHandler.setPlayerLocation(minX, player.posY, player.posZ, player.rotationYaw, player.rotationPitch);
 		}
 		if(player.posX > maxX)
 		{
-			player.sendChatToPlayer(MCColor.RED + wbMessage);
+			player.sendChatToPlayer(MCColor.RED + SimpleModsTranslation.wbMessage);
 			player.playerNetServerHandler.setPlayerLocation(maxX, player.posY, player.posZ, player.rotationYaw, player.rotationPitch);
 		}
 		if(player.posZ < minZ)
 		{
-			player.sendChatToPlayer(MCColor.RED + wbMessage);
+			player.sendChatToPlayer(MCColor.RED + SimpleModsTranslation.wbMessage);
 			player.playerNetServerHandler.setPlayerLocation(player.posX, player.posY, minZ, player.rotationYaw, player.rotationPitch);
 		}
 		if(player.posZ > maxZ)
 		{
-			player.sendChatToPlayer(MCColor.RED + wbMessage);
+			player.sendChatToPlayer(MCColor.RED + SimpleModsTranslation.wbMessage);
 			player.playerNetServerHandler.setPlayerLocation(player.posX, player.posY, maxZ, player.rotationYaw, player.rotationPitch);
 		}
 	}
