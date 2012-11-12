@@ -27,7 +27,12 @@ public class CommandPromote extends CommandBase
     
     public void processCommand(ICommandSender sender, String[] args)
     {
-    	EntityPlayer target = func_82359_c(sender, args[0]);
+    	EntityPlayer target;
+    	if(args.length != 2) {
+    		sender.sendChatToPlayer(getCommandUsage(sender));
+    		return;
+    	}
+    	target = func_82359_c(sender, args[0]);
     	Iterator ranks = Permissions.rankData.getTags().iterator();
     	while (ranks.hasNext())
     	{
