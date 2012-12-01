@@ -161,11 +161,10 @@ public class SimpleMods
 	{
 		if(ObfuscationReflectionHelper.obfuscation)
 		{
-			SimpleModsTransformer.addClassOverride("ec", "Needed to display rank on the tap-screen. (Packet201PlayerInfo)");
-			SimpleModsTransformer.addClassOverride("aiu", "Needed to protect from fire. (BlockFire)");
-			SimpleModsTransformer.addClassOverride("gz", "Needed to protect from players. (NetServerHandler)");
-			SimpleModsTransformer.addClassOverride("akp", "Needed to protect from growth. (BlockSapling)");
-			SimpleModsTransformer.addClassOverride("wz", "Needed to protect from explosions. (Explosion)");
+			SimpleModsTransformer.addClassOverride("el", "Needed to display rank on the tap-screen. (Packet201PlayerInfo)");
+			SimpleModsTransformer.addClassOverride("ajy", "Needed to protect from fire. (BlockFire)");
+			SimpleModsTransformer.addClassOverride("alt", "Needed to protect from growth. (BlockSapling)");
+			SimpleModsTransformer.addClassOverride("xq", "Needed to protect from explosions. (Explosion)");
 		}
 	}
 
