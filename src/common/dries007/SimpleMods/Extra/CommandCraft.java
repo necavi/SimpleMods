@@ -24,9 +24,9 @@ public class CommandCraft extends CommandBase
     	EntityPlayerMP player = getCommandSenderAsPlayer(sender);
     	player.incrementWindowID();
     	player.playerNetServerHandler.sendPacketToPlayer(new Packet100OpenWindow(player.currentWindowId, 1, "Crafting", 9));
-    	player.craftingInventory = new dries007.SimpleMods.Crafting(player.inventory, player.worldObj, 0, 0, 0);
-    	player.craftingInventory.windowId = player.currentWindowId;
-    	player.craftingInventory.addCraftingToCrafters(player);
+    	player.openContainer = new dries007.SimpleMods.Crafting(player.inventory, player.worldObj, 0, 0, 0);
+    	player.openContainer.windowId = player.currentWindowId;
+    	player.openContainer.addCraftingToCrafters(player);
     }
     
     public boolean canCommandSenderUseCommand(ICommandSender par1ICommandSender)

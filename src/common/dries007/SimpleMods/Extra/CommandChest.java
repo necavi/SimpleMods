@@ -22,7 +22,7 @@ public class CommandChest extends CommandBase
     {
     	EntityPlayerMP player = ((EntityPlayerMP) sender);
     	
-    	if (player.craftingInventory != player.inventorySlots)
+    	if (player.openContainer != player.inventoryContainer)
     	{
     		player.closeScreen();
     	}
@@ -30,9 +30,9 @@ public class CommandChest extends CommandBase
     	
     	InventoryEnderChest chest = player.getInventoryEnderChest();
 		player.playerNetServerHandler.sendPacketToPlayer(new Packet100OpenWindow(player.currentWindowId, 0, chest.getInvName(), chest.getSizeInventory()));
-    	player.craftingInventory = new ContainerChest(player.inventory, chest);
-    	player.craftingInventory.windowId = player.currentWindowId;
-    	player.craftingInventory.addCraftingToCrafters(player);
+    	player.openContainer = new ContainerChest(player.inventory, chest);
+    	player.openContainer.windowId = player.currentWindowId;
+    	player.openContainer.addCraftingToCrafters(player);
     }
     
     public boolean canCommandSenderUseCommand(ICommandSender par1ICommandSender)

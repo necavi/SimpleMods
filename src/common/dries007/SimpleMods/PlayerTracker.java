@@ -80,7 +80,7 @@ public class PlayerTracker implements IPlayerTracker
 	public void onPlayerRespawn(EntityPlayer player)
 	{
 		MinecraftServer server = ModLoader.getMinecraftServerInstance();
-		ChunkCoordinates var4 = ((EntityPlayerMP) player).getSpawnChunk();
+		ChunkCoordinates var4 = ((EntityPlayerMP) player).getBedLocation();
 		if (var4 == null)
 		{
 			if(Permissions.rankData.getCompoundTag(Permissions.getRank(player)).hasKey("Spawn"))
