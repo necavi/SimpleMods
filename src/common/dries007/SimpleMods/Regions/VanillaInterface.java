@@ -56,9 +56,9 @@ public class VanillaInterface
 		
 
 		if(VanillaInterface.hasTag(world, event.x, event.y, event.z, "noplayerblock", event.entityPlayer)) {
-			if(event.action!=event.action.LEFT_CLICK_BLOCK || event.action!=event.action.RIGHT_CLICK_BLOCK ) {
+			if(event.action==event.action.LEFT_CLICK_BLOCK ) {
 				event.entityPlayer.sendChatToPlayer(SimpleModsTranslation.noPlayerBlockMessage);
-
+				event.setCanceled(true);
 				event.useBlock = Result.DENY;
 			}
 			
